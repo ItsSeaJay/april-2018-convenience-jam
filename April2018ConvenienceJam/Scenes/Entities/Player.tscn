@@ -12,3 +12,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
