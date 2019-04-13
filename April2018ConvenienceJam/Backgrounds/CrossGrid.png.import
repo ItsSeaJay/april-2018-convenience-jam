@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CrossGrid.png-d1f18c466bdd978bbe58cd481555e3b0.stex"
+path="res://.import/CrossGrid.png-0117ad619f044ed0a45bc2a542f79ec7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/CrossGrid.png"
-dest_files=[ "res://.import/CrossGrid.png-d1f18c466bdd978bbe58cd481555e3b0.stex" ]
+source_file="res://Backgrounds/CrossGrid.png"
+dest_files=[ "res://.import/CrossGrid.png-0117ad619f044ed0a45bc2a542f79ec7.stex" ]
 
 [params]
 
