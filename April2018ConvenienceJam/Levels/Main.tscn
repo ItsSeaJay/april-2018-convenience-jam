@@ -25,6 +25,7 @@ cooldown = 0.2
 position = Vector2( 50, 0 )
 
 [node name="Feeder" parent="." instance=ExtResource( 4 )]
-size = Vector2( 5555, 5555 )
+size = Vector2( 12345, 12345 )
 population_limit = Vector2( 512, 1024 )
 
+[connection signal="body_entered" from="Food" to="Player" method="_on_Food_body_entered"]

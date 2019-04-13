@@ -17,7 +17,7 @@ func _ready():
 		var instance = food.instance()
 		
 		# Move that instance to a random position between nodes
-		instance.set_global_position(Vector2(randf() * size.x, randf() * size.y))
+		instance.set_global_position(Vector2(randf() * size.x - (size.x / 2.0), randf() * size.y - (size.x / 2.0)))
 		
 		# Add that node as a child in the scene tree
 		add_child(instance)

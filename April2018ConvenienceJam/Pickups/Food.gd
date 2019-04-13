@@ -1,8 +1,8 @@
-extends Area2D
+extends Node2D
 
 export var radius : float = 4.0
 
-onready var collision_shape = self.get_child(0)
+onready var collision_shape = self.get_child(0).get_child(0)
 
 var color : Color
 
@@ -16,3 +16,6 @@ func _draw():
 
 func get_random_color():
 	return Color(randf(), randf(), randf())
+
+func _on_Area2D_body_entered(body):
+	print(body.get_name())
