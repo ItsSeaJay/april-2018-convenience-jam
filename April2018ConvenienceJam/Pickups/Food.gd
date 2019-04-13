@@ -2,6 +2,8 @@ extends StaticBody2D
 
 export var radius : float = 4.0
 
+onready var collision_shape = self.get_child(0)
+
 var color : Color
 
 func _ready():

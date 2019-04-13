@@ -27,13 +27,16 @@ func _process(delta):
 	# Shooting
 	if (Input.is_action_pressed("fire") and heat == 0.0):
 		var world = self.get_parent()
-		var bullet = bullet.instance()
+		var instance = bullet.instance()
 		
-		bullet.set_global_position(global_position)
-		
+		# Apply heat to the gun to prevent endless fire
 		heat = cooldown
 		
-		world.add_child(bullet)
+		# Set the transform of the new instance
+		instance.position = position
+		
+		# Drop that instance into the world
+		world.add_child(instance)
 	
 	# Cool down the gun
 	heat = max(heat - delta, 0.0)
