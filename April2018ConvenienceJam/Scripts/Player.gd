@@ -1,9 +1,8 @@
 extends KinematicBody2D
 
-export var color : Color
+export var color : Color = Color(0, 0, 1)
+export var radius : float = 4.0
 
 func _draw():
-	var center = position
-	var color = Color(1.0, 0.0, 0.0)
-	
-	draw_circle(center, 360.0, color)
+	# Draw a circle to represent the player character
+	draw_circle(position, radius, color)
