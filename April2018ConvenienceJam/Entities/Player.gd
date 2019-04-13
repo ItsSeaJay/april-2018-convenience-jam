@@ -3,12 +3,17 @@ extends KinematicBody2D
 export var color : Color = Color(0, 0, 1)
 export var radius : float = 4.0
 export var speed : float = 64.0
+export var cooldown : float = 1.0
+
+onready var bullet = preload("res://Projectiles/Bullet.tscn")
 
 var offset = 0.0
+var heat = 0.0
 
 func _process(delta):
 	var direction = Vector2(0.0, 0.0)
 	
+	# Movement
 	if (Input.is_action_pressed("move_up")):
 		direction.y -= 1.0
 	elif (Input.is_action_pressed("move_down")):
@@ -18,6 +23,20 @@ func _process(delta):
 		direction.x -= 1.0
 	elif (Input.is_action_pressed("move_right")):
 		direction.x += 1.0
+	
+	# Shooting
+	if (Input.is_action_pressed("fire") and heat == 0.0):
+		var world = self.get_parent()
+		var bullet = bullet.instance()
+		
+		bullet.set_global_position(global_position)
+		
+		heat = cooldown
+		
+		world.add_child(bullet)
+	
+	# Cool down the gun
+	heat = max(heat - delta, 0.0)
 	
 	# Move the player according to their direction
 	translate(move_and_slide(direction * speed * delta))

@@ -1,10 +1,11 @@
-extends Node2D
+extends StaticBody2D
 
 export var radius : float = 4.0
 
 var color : Color
 
 func _ready():
+	# Randomize the color of the food item
 	color = get_random_color()
 
 func _draw():
