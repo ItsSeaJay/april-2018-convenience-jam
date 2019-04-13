@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 export var size : Vector2 = Vector2(640, 480)
 export var population_limit : Vector2 = Vector2(128, 256)
@@ -17,8 +17,7 @@ func _ready():
 		var instance = food.instance()
 		
 		# Move that instance to a random position between nodes
-		#instance.set_global_position(Vector2(randf() * size.x, randf() * size.y))
-		instance.set_global_position(Vector2(32.0, 0.0))
+		instance.set_global_position(Vector2(randf() * size.x, randf() * size.y))
 		
 		# Add that node as a child in the scene tree
 		add_child(instance)

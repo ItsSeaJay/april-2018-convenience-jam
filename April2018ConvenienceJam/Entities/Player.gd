@@ -35,6 +35,9 @@ func _process(delta):
 		# Set the transform of the new instance
 		instance.position = position
 		
+		# Rotate the bullet to face the direction we're aiming at
+		#instance.rotation
+		
 		# Drop that instance into the world
 		world.add_child(instance)
 	

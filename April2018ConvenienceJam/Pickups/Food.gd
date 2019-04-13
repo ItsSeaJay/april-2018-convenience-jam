@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 export var radius : float = 4.0
 
@@ -11,7 +11,8 @@ func _ready():
 	color = get_random_color()
 
 func _draw():
-	draw_circle(position, radius, color)
+	# The drawing needs to be aligned to the collision shape for some reason?
+	draw_circle(collision_shape.position, radius, color)
 
 func get_random_color():
 	return Color(randf(), randf(), randf())
