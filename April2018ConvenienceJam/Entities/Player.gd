@@ -72,7 +72,7 @@ func grow(amount):
 	collision_shape.shape.radius += amount
 	
 	# Zoom the camera out to ensure the player can see properly
-	camera.zoom += Vector2(metabolism / 100, metabolism / 100)
+	camera.zoom += Vector2(metabolism / 100.0, metabolism / 100.0)
 	
 	# Update the node to ensure it calls it's draw event again
 	update()
@@ -85,15 +85,13 @@ func shrink(amount):
 	collision_shape.shape.radius -= amount
 	
 	# Zoom the camera out to ensure the player can see properly
-	camera.zoom -= Vector2(0.01, 0.01)
+	camera.zoom -= Vector2(metabolism / 100.0, metabolism / 100.0)
 	
 	# Update the node to ensure it calls it's draw event again
 	update()
 
 func die():
-	get_tree().change_scene("res://Levels/GameOverScreen.tscn")
-	
-	queue_free()
+	get_tree().change_scene("res://Scenes/GameOverScreen.tscn")
 
 func _on_Area2D_body_entered(body):
 	if body is Enemy:
@@ -101,7 +99,5 @@ func _on_Area2D_body_entered(body):
 		
 		print(enemy.radius)
 		
-		if (enemy.radius >= radius * 2):
+		if (enemy.radius >= radius):
 			die()
-		else:
-			shrink(weakness)
