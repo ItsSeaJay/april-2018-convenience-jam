@@ -57,8 +57,14 @@ func shoot():
 		world.add_child(instance)
 
 func grow(amount):
+	# Increase the radius of the player overall
 	radius += amount
+	
+	# Resize their hitbox to match
 	hitbox.shape.radius += amount
 	
-	# Update the node to ensure it appears bigger
+	# Zoom the camera out to ensure the player can see properly
+	camera.zoom += Vector2(0.01, 0.01)
+	
+	# Update the node to ensure it calls it's draw event again
 	update()
