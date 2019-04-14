@@ -1,18 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Entities/Player.gd" type="Script" id=1]
-[ext_resource path="res://Entities/RadialHitbox.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 18.2317
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-radius = 8.0
-speed = 256.0
 
 [node name="RadialHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

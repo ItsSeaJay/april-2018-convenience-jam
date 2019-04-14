@@ -4,4 +4,5 @@ extends CollisionShape2D
 export var area_percentage = 66.0
 
 func _process(delta):
-	self.shape.radius = get_parent().radius * (area_percentage / 100.0)
+	#self.shape.radius = get_parent().radius * (area_percentage / 100.0)
+	pass
