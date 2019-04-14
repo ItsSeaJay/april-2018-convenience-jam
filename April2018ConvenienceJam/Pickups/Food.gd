@@ -1,9 +1,10 @@
 extends Node2D
 
-export var radius : float = 4.0
+export var radius : float = 8.0
 
 onready var area = $Area2D
 onready var collision_shape = $Area2D/CollisionShape2D
+onready var label = $Label
 
 var color : Color
 var i = 0
@@ -13,6 +14,9 @@ const Player = preload("res://Entities/Player.gd")
 func _ready():
 	# Randomize the color of the food item
 	color = get_random_color()
+	
+	# Randomize the text of the attached label
+	label.set_text(str(round(rand_range(0, 1))))
 	
 	# Create an event for when something enters
 	area.connect("body_entered", self, "_on_Area2D_body_entered")
@@ -30,7 +34,7 @@ func _on_Area2D_body_entered(body):
 	
 	var player = body
 	
-	player.grow(1.0)
+	player.grow(player.metabolism)
 	
 	# Remove this Food object from the scene tree
 	queue_free()
