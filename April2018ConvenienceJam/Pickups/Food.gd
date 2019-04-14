@@ -28,5 +28,9 @@ func _on_Area2D_body_entered(body):
 	if not body is Player:
 		return
 	
+	var player = body
+	
+	player.grow(1.0)
+	
 	# Remove this Food object from the scene tree
 	queue_free()

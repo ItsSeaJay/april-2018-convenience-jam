@@ -6,6 +6,8 @@ export var speed : float = 256.0
 export var cooldown : float = 1.0
 
 onready var bullet = preload("res://Projectiles/Bullet.tscn")
+onready var camera = $Camera2D
+onready var hitbox = $RadialHitbox
 
 var offset = 0.0
 var heat = 0.0
@@ -19,7 +21,7 @@ func _process(delta):
 
 func _draw():
 	# Draw a circle to represent the player character
-	draw_circle(position, radius + offset, color)
+	draw_circle(hitbox.position, radius + offset, color)
 
 func move(delta):
 	var direction = Vector2(0.0, 0.0)
@@ -53,3 +55,10 @@ func shoot():
 		
 		# Drop that instance into the world
 		world.add_child(instance)
+
+func grow(amount):
+	radius += amount
+	hitbox.shape.radius += amount
+	
+	# Update the node to ensure it appears bigger
+	update()
